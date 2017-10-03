@@ -12,11 +12,11 @@ def sumaPositivos( a, b):
         return a + b
 
 def multiplo3o5o15( numero ):
-    if numero % 15 != 0:
+    if numero % 15 == 0:
         return 3
-    if numero % 3 != 0:
+    if numero % 3 == 0:
         return 1
-    if numero % 5 != 0:
+    if numero % 5 == 0:
         return 2
     return 0
     
