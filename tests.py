@@ -19,6 +19,18 @@ def multiplo3o5o15( numero ):
     if numero % 5 == 0:
         return 2
     return 0
+
+def division(a, b):
+    if b == 0:
+        return -1
+
+    return a/b
+
+def palindromo(cadena):
+    if type(cadena) is int or type(cadena) is float:
+        return False
+
+    return cadena == cadena[::-1]
     
 class SoloTest(unittest.TestCase):
     
@@ -31,9 +43,20 @@ class SoloTest(unittest.TestCase):
 
     def testMultiplos(self):
         self.assertEqual(multiplo3o5o15(3),1,"Multiplo de 3")
-        self.assertEqual(multiplo3o5o15(5),2,u"Multiplo de 5")
-        self.assertEqual(multiplo3o5o15(15),3,u"Multiplo de 15")
-        self.assertEqual(multiplo3o5o15(7),0,u"No es multiplo")
+        self.assertEqual(multiplo3o5o15(5),2,"Multiplo de 5")
+        self.assertEqual(multiplo3o5o15(15),3,"Multiplo de 15")
+        self.assertEqual(multiplo3o5o15(7),0,"No es multiplo")
+
+    def testDivision(self):
+        self.assertEqual(division(1, 0), -1, "Division correcta")
+        self.assertEqual(division(4, 2), 2, "Division correcta")
+
+    def testPalindromo(self):
+        self.assertEqual(palindromo("hola"), False)
+        self.assertEqual(palindromo("aba"), True)
+        self.assertEqual(palindromo(1), False)
+
+
         
 
 if __name__ == '__main__':
