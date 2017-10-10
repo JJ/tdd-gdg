@@ -3,14 +3,11 @@ import math
 
 
 def isPrime(n):
-
-    max = int(math.sqrt(n)) + 1
-    if n % 2 == 0 and n > 2: 
+    if n == 2:
+        return True
+    if not n & 1:
         return False
-    for i in range(3, max , 2):
-        if n % i == 0:
-            return False
-    return True
+    return pow(2, n-1, n) == 1
 
 
 def devuelveTrue():
@@ -96,7 +93,7 @@ class SoloTest(unittest.TestCase):
         self.assertEqual(multiplicacion(10, "b"), -1, "Resta incorrecta")
 
     def testPrime(self):
-        self.assertTrue(isPrime(2))
+        self.assertTrue(isPrime(11))
         self.assertTrue(not isPrime(10))
     
 
