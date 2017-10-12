@@ -104,7 +104,7 @@ class SoloTest(unittest.TestCase):
 
     def testCuadrado(self):
 	    self.assertEqual(cuadrado(2), 4, "El cuadrado de 2 es 4")
-        self.assertEqual(cuadrado(a), -1, "No es un numero")
+        self.assertEqual(cuadrado(3), 9, "El cuadrado de 3 es 9")
 
 if __name__ == '__main__':
     unittest.main()
