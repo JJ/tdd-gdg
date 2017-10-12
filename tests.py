@@ -56,6 +56,12 @@ def multiplicacion(a,b):
         return -1
     return a*b
 
+def cuadrado(a):
+    if(not(type(a)is int)):
+        return -1
+    else:
+        return a**2;
+
 class SoloTest(unittest.TestCase):
 
     def testTrue(self):
@@ -95,7 +101,10 @@ class SoloTest(unittest.TestCase):
     def testPrime(self):
         self.assertTrue(isPrime(11))
         self.assertTrue(not isPrime(10))
-    
 
+    def testCuadrado(self):
+	self.assertEqual(cuadrado(2), 4, "El cuadrado de 2 es 4")
+        self.assertEqual(cuadrado(3), 6, "El cuadrado de 3 NO es 6")
+    
 if __name__ == '__main__':
     unittest.main()
