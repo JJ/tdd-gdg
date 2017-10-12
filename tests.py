@@ -103,8 +103,8 @@ class SoloTest(unittest.TestCase):
         self.assertTrue(not isPrime(10))
 
     def testCuadrado(self):
-	self.assertEqual(cuadrado(2), 4, "El cuadrado de 2 es 4")
-        self.assertEqual(cuadrado(3), 6, "El cuadrado de 3 NO es 6")
-    
+	    self.assertEqual(cuadrado(2), 4, "El cuadrado de 2 es 4")
+        self.assertEqual(cuadrado(a), -1, "No es un numero")
+
 if __name__ == '__main__':
     unittest.main()
