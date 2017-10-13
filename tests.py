@@ -62,6 +62,12 @@ def cuadrado(a):
     else:
         return a**2;
 
+def squareRoot(a):
+    if(not(type(a)is int)):
+        return -1
+    else:
+        return math.sqrt(a);
+
 class SoloTest(unittest.TestCase):
 
     def testTrue(self):
@@ -105,6 +111,11 @@ class SoloTest(unittest.TestCase):
     def testCuadrado(self):
         self.assertEqual(cuadrado(2), 4, "El cuadrado de 2 es 4")
         self.assertEqual(cuadrado(3), 9, "El cuadrado de 3 es 9")
+
+    def testRoot(self):
+        self.assertEqual(squareRoot(4), 2, "La raiz cuadrada de 4 es 2")
+        self.assertEqual(squareRoot(25), 5, "La raiz cuadrada de 25 es 5")
+	self.assertEqual(squareRoot(7.9), -1, "No ha introducido un numero entero")
 
 if __name__ == '__main__':
     unittest.main()
