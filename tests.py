@@ -67,6 +67,12 @@ def squareRoot(a):
         return -1
     else:
         return math.sqrt(a);
+ 
+def Bisiesto(numero):
+        if (numero % 4 == 0 and numero % 100 != 0) or numero % 400 == 0:
+                return True
+        else:
+                return False
 
 class SoloTest(unittest.TestCase):
 
@@ -116,6 +122,9 @@ class SoloTest(unittest.TestCase):
         self.assertEqual(squareRoot(4), 2, "La raiz cuadrada de 4 es 2")
         self.assertEqual(squareRoot(25), 5, "La raiz cuadrada de 25 es 5")
 	self.assertEqual(squareRoot(7.9), -1, "No ha introducido un numero entero")
+
+    def testBisiesto(self):
+        self.assertEqual(Bisiesto(2016),True)
 
 if __name__ == '__main__':
     unittest.main()
