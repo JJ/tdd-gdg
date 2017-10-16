@@ -68,6 +68,12 @@ def squareRoot(a):
     else:
         return math.sqrt(a);
 
+def elevadoEnteros(base,exponente):
+	if(not (type(base) is int)):
+		return -1
+	else:
+		return math.pow(base, exponente)
+
 class SoloTest(unittest.TestCase):
 
     def testTrue(self):
@@ -116,6 +122,10 @@ class SoloTest(unittest.TestCase):
         self.assertEqual(squareRoot(4), 2, "La raiz cuadrada de 4 es 2")
         self.assertEqual(squareRoot(25), 5, "La raiz cuadrada de 25 es 5")
 	self.assertEqual(squareRoot(7.9), -1, "No ha introducido un numero entero")
+
+    def testElevadoEnteros(self):
+	self.assertEqual(elevadoEnteros(2,4), 16, "2 elevado 4 es 16")
+	self.assertEqual(elevadoEnteros(-1,3), -1, "No es un entero")
 
 if __name__ == '__main__':
     unittest.main()
