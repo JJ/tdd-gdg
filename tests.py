@@ -1,5 +1,5 @@
-import unittest
 import math
+import unittest
 
 
 def isPrime(n):
@@ -7,21 +7,23 @@ def isPrime(n):
         return True
     if not n & 1:
         return False
-    return pow(2, n-1, n) == 1
+    return pow(2, n - 1, n) == 1
 
 
 def devuelveTrue():
     return True
 
-def sumaPositivos( a, b):
-    if ( not (type(a) is int) ):
+
+def sumaPositivos(a, b):
+    if (not (type(a) is int)):
         return -1
-    if ( not (type(b) is int) ):
+    if (not (type(b) is int)):
         return -1
-    if ( a >= 0 and b >= 0):
+    if (a >= 0 and b >= 0):
         return a + b
 
-def multiplo3o5o15( numero ):
+
+def multiplo3o5o15(numero):
     if numero % 15 == 0:
         return 3
     if numero % 3 == 0:
@@ -30,11 +32,13 @@ def multiplo3o5o15( numero ):
         return 2
     return 0
 
+
 def division(a, b):
     if b == 0:
         return -1
 
-    return a/b
+    return a / b
+
 
 def palindromo(cadena):
     if type(cadena) is int or type(cadena) is float:
@@ -42,37 +46,57 @@ def palindromo(cadena):
 
     return cadena == cadena[::-1]
 
-def resta(a,b):
-    if (not (type(a) is int)):
-        return -1
-    if (not (type(b) is int)):
-        return -1
-    return a-b
 
-def multiplicacion(a,b):
+def resta(a, b):
     if (not (type(a) is int)):
         return -1
     if (not (type(b) is int)):
         return -1
-    return a*b
+    return a - b
+
+
+def multiplicacion(a, b):
+    if (not (type(a) is int)):
+        return -1
+    if (not (type(b) is int)):
+        return -1
+    return a * b
+
 
 def cuadrado(a):
     if(not(type(a)is int)):
         return -1
     else:
-        return a**2;
+        return a**2
+
 
 def squareRoot(a):
     if(not(type(a)is int)):
         return -1
     else:
-        return math.sqrt(a);
- 
+        return math.sqrt(a)
+
+
 def Bisiesto(numero):
-        if (numero % 4 == 0 and numero % 100 != 0) or numero % 400 == 0:
-                return True
-        else:
-                return False
+    if (numero % 4 == 0 and numero % 100 != 0) or numero % 400 == 0:
+        return True
+    else:
+        return False
+
+
+def odd(number):
+    if(number % 2 == 0):
+        return True
+    else:
+        return False
+
+
+def even(number):
+    if(number % 2 != 0):
+        return True
+    else:
+        return False
+
 
 class SoloTest(unittest.TestCase):
 
@@ -80,14 +104,14 @@ class SoloTest(unittest.TestCase):
         self.assertTrue(devuelveTrue(), "Tiene que fallar")
 
     def testSuma(self):
-        self.assertEqual(sumaPositivos("cadena",3),-1, "Suma correcta")
-        self.assertEqual(12,sumaPositivos(4,8), "Suma correcta")
+        self.assertEqual(sumaPositivos("cadena", 3), -1, "Suma correcta")
+        self.assertEqual(12, sumaPositivos(4, 8), "Suma correcta")
 
     def testMultiplos(self):
-        self.assertEqual(multiplo3o5o15(3),1,"Multiplo de 3")
-        self.assertEqual(multiplo3o5o15(5),2,"Multiplo de 5")
-        self.assertEqual(multiplo3o5o15(15),3,"Multiplo de 15")
-        self.assertEqual(multiplo3o5o15(7),0,"No es multiplo")
+        self.assertEqual(multiplo3o5o15(3), 1, "Multiplo de 3")
+        self.assertEqual(multiplo3o5o15(5), 2, "Multiplo de 5")
+        self.assertEqual(multiplo3o5o15(15), 3, "Multiplo de 15")
+        self.assertEqual(multiplo3o5o15(7), 0, "No es multiplo")
 
     def testDivision(self):
         self.assertEqual(division(1, 0), -1, "Division correcta")
@@ -121,10 +145,20 @@ class SoloTest(unittest.TestCase):
     def testRoot(self):
         self.assertEqual(squareRoot(4), 2, "La raiz cuadrada de 4 es 2")
         self.assertEqual(squareRoot(25), 5, "La raiz cuadrada de 25 es 5")
-	self.assertEqual(squareRoot(7.9), -1, "No ha introducido un numero entero")
+        self.assertEqual(squareRoot(7.9), -1,
+                         "No ha introducido un numero entero")
 
     def testBisiesto(self):
-        self.assertEqual(Bisiesto(2016),True)
+        self.assertEqual(Bisiesto(2016), True)
+
+    def test_odd(self):
+        self.assertTrue(odd(2), "El numero 2 es par")
+        self.assertTrue(not odd(3), "El numero 3 no es par")
+
+    def test_even(self):
+        self.assertTrue(even(3), "El numero 3 es impar")
+        self.assertTrue(not even(2), "El numero 2 no es impar")
+
 
 if __name__ == '__main__':
     unittest.main()
