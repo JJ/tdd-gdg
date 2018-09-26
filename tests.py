@@ -101,11 +101,11 @@ def even(number):
 class SoloTest(unittest.TestCase):
 
     def testTrue(self):
-        self.assertTrue(devuelveTrue(), "Tiene que fallar")
+        self.assertTrue(devuelveTrue(), "Devuelve lo que tiene que devolver")
 
     def testSuma(self):
         self.assertEqual(sumaPositivos("cadena", 3), -1, "Suma correcta")
-        self.assertEqual(12, sumaPositivos(4, 8), "Suma correcta")
+        self.assertEqual(sumaPositivos(4, 8), 12, "Suma correcta")
 
     def testMultiplos(self):
         self.assertEqual(multiplo3o5o15(3), 1, "Multiplo de 3")
