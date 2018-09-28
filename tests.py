@@ -175,8 +175,8 @@ class SoloTest(unittest.TestCase):
 
     def test_fibonacci(self):
         self.assertEqual(Fibonacci("hola"), -1, "Argumento incorrecto")
-        self.assertEqual(Fibonacci(0), 1, "La sucesión de Fibonacci en la pos 0 es 1")
-        self.assertEqual(Fibonacci(4), 5, "La sucesión de Fibonacci en la pos 4 es 5")
+        self.assertEqual(Fibonacci(0), 1, "La sucesion de Fibonacci en la pos 0 es 1")
+        self.assertEqual(Fibonacci(4), 5, "La sucesion de Fibonacci en la pos 4 es 5")
 
 
 
