@@ -97,6 +97,20 @@ def even(number):
     else:
         return False
 
+def Fibonacci(pos):
+    if (not (type(pos) is int)):
+        return -1
+    if pos == 1 or pos == 0:
+        return 1
+    else:
+        fib = 2
+        fib_anterior = 1
+        for i in range(2,pos):
+            fib += fib_anterior
+            fib_anterior = fib-fib_anterior
+        return fib
+
+
 
 class SoloTest(unittest.TestCase):
 
@@ -158,6 +172,12 @@ class SoloTest(unittest.TestCase):
     def test_even(self):
         self.assertTrue(even(3), "El numero 3 es impar")
         self.assertTrue(not even(2), "El numero 2 no es impar")
+
+    def test_fibonacci(self):
+        self.assertEqual(Fibonacci("hola"), -1, "Argumento incorrecto")
+        self.assertEqual(Fibonacci(0), 1, "La sucesion de Fibonacci en la pos 0 es 1")
+        self.assertEqual(Fibonacci(4), 5, "La sucesion de Fibonacci en la pos 4 es 5")
+
 
 
 if __name__ == '__main__':
