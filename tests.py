@@ -184,11 +184,9 @@ class SoloTest(unittest.TestCase):
         self.assertEqual(Fibonacci(0), 1, "La sucesion de Fibonacci en la pos 0 es 1")
         self.assertEqual(Fibonacci(4), 5, "La sucesion de Fibonacci en la pos 4 es 5")
 
-
-
     def testElevadoEnteros(self):
-	self.assertEqual(elevadoEnteros(2,4), 16, "2 elevado 4 es 16")
-	self.assertEqual(elevadoEnteros(-1,3), -1, "No es un entero")
+	    self.assertEqual(elevadoEnteros(2,4), 16, "2 elevado 4 es 16")
+	    self.assertEqual(elevadoEnteros(-1,3), -1, "No es un entero")
 
 if __name__ == '__main__':
     unittest.main()
