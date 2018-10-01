@@ -110,7 +110,19 @@ def Fibonacci(pos):
             fib_anterior = fib-fib_anterior
         return fib
 
+def Gaussiana(x,mu,sigma):
+    if(sigma > 0):
+        num = pow(math.e,-0.5*((x-mu)/sigma)**2)
+        coef = 1/(sigma*math.sqrt(2*math.pi))
+        return coef*num
+    else:
+        return -1
 
+def Celsius_to_Fahrenheit(t):
+    if(not(type(t) is int) and not(type(t) is float)):
+        return "Error"
+    else:
+        return (t*180/100)+32
 
 def elevadoEnteros(base,exponente):
 	if(not (type(base) is int)):
@@ -184,11 +196,19 @@ class SoloTest(unittest.TestCase):
         self.assertEqual(Fibonacci(0), 1, "La sucesion de Fibonacci en la pos 0 es 1")
         self.assertEqual(Fibonacci(4), 5, "La sucesion de Fibonacci en la pos 4 es 5")
 
+    def test_Gaussiana(self):
+        self.assertEqual(Gaussiana(0,0,1),0.3989422804014327, "La Gaussiana de media 0 y desviación típica uno es 0.39894228")
+        self.assertEqual(Gaussiana(1000,0,1),0, "La cola de la Gaussiana vale 0")
+        self.assertEqual(Gaussiana(-1000,0,1),0, "Cola de la Gaussiana es 0")
+        self.assertEqual(Gaussiana(0,0,-5),-1, "Error al introducir sigma (debe ser mayor que 0)")
 
+    def test_C_t_F(self):
+        self.assertEqual(Celsius_to_Fahrenheit("c"),"Error", "Error al introducir los datos")
+        self.assertEqual(Celsius_to_Fahrenheit(0),32, "0ºC = 32ºF")
 
     def testElevadoEnteros(self):
-	self.assertEqual(elevadoEnteros(2,4), 16, "2 elevado 4 es 16")
-	self.assertEqual(elevadoEnteros(-1,3), -1, "No es un entero")
+	    self.assertEqual(elevadoEnteros(2,4), 16, "2 elevado 4 es 16")
+	    self.assertEqual(elevadoEnteros(-1,3), -1, "No es un entero")
 
 if __name__ == '__main__':
     unittest.main()
