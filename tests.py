@@ -15,7 +15,6 @@ def isPrime(n):
 def devuelveTrue():
     return True
 
-
 def sumaPositivos(a, b):
     if (not (type(a) is int)):
         return -1
@@ -23,7 +22,7 @@ def sumaPositivos(a, b):
         return -1
     if (a >= 0 and b >= 0):
         return a + b
-
+    return -1
 
 def multiplo3o5o15(numero):
     if numero % 15 == 0:
@@ -138,8 +137,9 @@ class SoloTest(unittest.TestCase):
         self.assertTrue(devuelveTrue(), "Devuelve lo que tiene que devolver")
 
     def testSuma(self):
-        self.assertEqual(sumaPositivos("cadena", 3), -1, "Suma correcta")
-        self.assertEqual(sumaPositivos(4, 8), 12, "Suma correcta")
+        self.assertEqual(sumaPositivos("cadena", 3), -1, "Suma correcta, argumentos incorrectos")
+        self.assertEqual(sumaPositivos(4, 8), 12, "Suma correcta, argumentos correctos")
+        self.assertEqual(sumaPositivos(-3,8), -1, "Suma correcta, argumentos incorrectos")
 
     def testMultiplos(self):
         self.assertEqual(multiplo3o5o15(3), 1, "Multiplo de 3")
@@ -214,3 +214,5 @@ class SoloTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
