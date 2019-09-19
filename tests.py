@@ -40,6 +40,18 @@ def division(a, b):
 
     return a / b
 
+def divisor(a, b):
+    out = False
+
+    if (not (type(a) is int)) or (not (type(b) is int)):
+        out = -1
+
+    else:
+        if a % b == 0:
+            out = True
+
+    return out
+	
 
 def palindromo(cadena):
     if type(cadena) is int or type(cadena) is float:
@@ -150,6 +162,11 @@ class SoloTest(unittest.TestCase):
     def testDivision(self):
         self.assertEqual(division(1, 0), -1, "Division correcta")
         self.assertEqual(division(4, 2), 2, "Division correcta")
+
+    def testDivisor(self):
+        self.assertTrue(divisor(20, 2), "b divisor de a")
+        self.assertFalse(divisor(13, 5), "b no es divisor de a")
+        self.assertEqual(divisor("abc", 2), -1, "Al menos un dato no es entero")
 
     def testPalindromo(self):
         self.assertEqual(palindromo("hola"), False)
