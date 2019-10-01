@@ -131,6 +131,20 @@ def elevadoEnteros(base,exponente):
 	else:
 		return math.pow(base, exponente)
 
+def cifrarCesar(texto,shift):
+    ct = ""
+    for c in texto:
+        if c.isalpha():
+            if c.isupper():
+                new_c = (ord(c)+shift)%ord('[')
+                if new_c < ord('A'): new_c = new_c + ord('A')
+                ct += chr(new_c)
+            else:
+                new_c = (ord(c)+shift)%ord('{')
+                if new_c < ord('a'): new_c = new_c + ord('a')
+                ct += chr(new_c)
+    return ct
+
 class SoloTest(unittest.TestCase):
 
     def testTrue(self):
@@ -212,7 +226,11 @@ class SoloTest(unittest.TestCase):
 	    self.assertEqual(elevadoEnteros(2,4), 16, "2 elevado 4 es 16")
 	    self.assertEqual(elevadoEnteros(-1,3), -1, "No es un entero")
 
+    def testCifrarCesar(self):
+        self.assertEqual(cifrarCesar("abcd",1),"bcde","abcd cifrado con clave 1 es bcde")
+        self.assertEqual(cifrarCesar("ABCD",3),"DEFG","ABCD cifrado con clave 3 es DEFG")
+        self.assertEqual(cifrarCesar("XYZ",2),"ZAB","XYZ cifrado con clave 2 es ZAB")
+        self.assertEqual(cifrarCesar("wxyz",17),"nopq","wxyz cifrado con clave 17 es nopq")
+
 if __name__ == '__main__':
     unittest.main()
-
-
